@@ -9,9 +9,9 @@ from office365.sharepoint.client_context import ClientContext
 from office365.sharepoint.file import File
 
 app_settings = {
-    'url': 'https://levi.sharepoint.com/sites/LSAMPIM/',
-    'client_id': 'd1a182a5-05db-41d1-8df2-091c0dbdd963',
-    'client_secret': 'qEYU9S1T1ydArcCtdet7LXrTjtoGmw3qHSOcAI2OE7c=',
+    'url': 'site of your sharepoint',
+    'client_id': 'secret id',
+    'client_secret': 'secret code',
 }
 
 ctx_auth = AuthenticationContext(url=app_settings['url'])
@@ -20,7 +20,7 @@ ctx_auth.acquire_token_for_app(
 
 ctx = ClientContext(app_settings['url'], ctx_auth)
 
-download_path = r'\\Sfooa11\forecast\LSA P&A\Team LSA\Documentation\Prabhu - TEST\Dockers Reporting- Prabhu TEST.xlsx'
-file_url = "/sites/LSAMPIM/LSA Reporting Team/TEST - Prabhu/Dockers Reporting- Prabhu TEST.xlsx"
+download_path = r'file location with name'
+file_url = "site file location with name"
 with open(download_path, "wb") as local_file:
     file = ctx.web.get_file_by_server_relative_url(file_url).download(local_file).execute_query()
